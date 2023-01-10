@@ -16,5 +16,8 @@
   },
   "homepage": "https://github.com/h21lierk/gik2f8-grupp33-projekt#readme",
   "keywords": [],
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }

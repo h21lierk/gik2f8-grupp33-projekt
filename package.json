@@ -1,0 +1,20 @@
+{
+  "name": "grupp33",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/h21lierk/gik2f8-grupp33-projekt.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/h21lierk/gik2f8-grupp33-projekt/issues"
+  },
+  "homepage": "https://github.com/h21lierk/gik2f8-grupp33-projekt#readme",
+  "keywords": [],
+  "description": ""
+}

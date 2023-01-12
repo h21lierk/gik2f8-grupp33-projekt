@@ -1,3 +1,5 @@
+/* Starta server cd server -> node app.js */
+
 const express = require('express');
 const app = express();
 const fs = require('fs/promises');
@@ -13,6 +15,9 @@ app
     next();
   });
 
+
+/* Routes till HTTP-förfrågan går mot /friends */
+
 app.get('/friends', async (req, res) => {
   try { 
     const friends = await fs.readFile('./friends.json'); 
@@ -21,7 +26,6 @@ app.get('/friends', async (req, res) => {
     res.status(500).send({ error });
   }
 });
-
 
 
 app.post('/friends', async (req, res) => {
@@ -45,15 +49,6 @@ app.post('/friends', async (req, res) => {
 	  res.status(500).send({ error: error.stack });
 	}
   });
-
-
-
-
-
-
-
-
-
 
 
   app.delete('/friends/:id', async (req, res) => {

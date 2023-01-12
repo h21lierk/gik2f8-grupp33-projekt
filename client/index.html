@@ -17,11 +17,15 @@
 <body>
   <main id="root"
         class="pt-12 bg-gradient-to-b from-cyan-200 via-pink-200 to-yellow-200 min-h-screen">
+
+<!--  Här börjar koden för vår digitala mina vänner-bok. Den består av ett formulär som användaren fyller i info om sina vänner.
+Varje fråga har en label+inputfält och ligger i en egen section-tag. När användaren fyllt i info och tryckt på "lägg till vän"-knappen
+sparas informationen om den nya vännen som ett objekt och dynamiskt upp i listan till höger -->
+
     <h1 class="text-center font-serif mb-12 text-6xl text-zinc-700">Digitala mina vänner-boken</h1>
     <section class="flex gap-10 w-8/12 mx-2 xl:mx-auto ">
-      <section class="flex-1 bg-white p-5 rounded-lg drop-shadow-md">
+      <section class="flex-1 bg-white p-5 rounded-lg drop-shadow-md h-fit">
         <h2 class="mb-6 text-center text-3xl text-zinc-700 font-serif underline decoration-solid decoration-zinc-600">Ny vän</h2>
-        
         <form id="friendForm"
               name="friendForm">
           <section class="mb-2 mt-2 border-b-2 min-h-full">
@@ -33,7 +37,7 @@
             <input type="text"
                    id="friendName"
                    name="friendName"
-                   class="w-full  focus-within:outline-none focus:border-indigo-400 focus:border-b-2 px-4 py-2" />
+                   class="w-full focus-within:outline-none focus:border-indigo-400 focus:border-b-2 px-4 py-2" />
           </section>
 
           <section class="mb-2 mt-2 border-b-2">
@@ -109,10 +113,8 @@
 
       <section class="flex-1 px-5 bg-white p-5 rounded-lg drop-shadow-md">
         <h2 class="mb-6 text-center text-3xl text-zinc-700 font-serif underline decoration-solid decoration-zinc-600">Mina vänner</h2>
-        <!-- Ul-element som kommer att fyllas på dynamiskt med li-element för varje uppgift i listan -->
         <ul id="friendList">
-          
-          <!-- Allt innanför här ska skapas dynamiskt med JavaScript, så se till att inget list-element läggs till här i denna HTML-fil.  -->
+          <!-- Ul-elementet fylls på dynamiskt med li-element för varje ny vän som läggs till  -->
         </ul>
       </section>
     </section>

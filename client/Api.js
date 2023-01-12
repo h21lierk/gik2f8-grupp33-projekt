@@ -4,6 +4,7 @@ class Api {
     this.url = url;
   }
 
+/*   Create = POST */
   create(data) {
     const JSONData = JSON.stringify(data);
     console.log(`Sending ${JSONData} to ${this.url}`);
@@ -24,6 +25,7 @@ class Api {
     );
   }
 
+/* Read - GET */
   getAll() {
     return fetch(this.url)
       .then((result) => result.json())
@@ -31,6 +33,7 @@ class Api {
       .catch((err) => console.log(err));
   }
   
+  /* Delete = DELETE. */  
   remove(id) { 
     console.log(`Tar bort vän med id.nr: ${id}`);
     return fetch(`${this.url}/${id}`, {

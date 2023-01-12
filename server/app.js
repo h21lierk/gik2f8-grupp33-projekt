@@ -1,3 +1,5 @@
+/* Starta server cd server -> node app.js */
+
 const express = require('express');
 const app = express();
 const fs = require('fs/promises');
@@ -12,6 +14,9 @@ app
     res.header('Access-Control-Allow-Methods', '*'); 
     next();
   });
+
+
+/* Routes till HTTP-förfrågan går mot /friends */
 
 app.get('/friends', async (req, res) => {
   try { 

@@ -23,7 +23,6 @@ app.get('/friends', async (req, res) => {
 });
 
 
-
 app.post('/friends', async (req, res) => {
 	try { 
 	  const friend = req.body; 
@@ -45,15 +44,6 @@ app.post('/friends', async (req, res) => {
 	  res.status(500).send({ error: error.stack });
 	}
   });
-
-
-
-
-
-
-
-
-
 
 
   app.delete('/friends/:id', async (req, res) => {

@@ -129,6 +129,7 @@ function validateField(field) {
 
 
 function onSubmit(e) {
+  console.log('nu klickar jag')
   e.preventDefault();
   if (friendNameValid && birthdayValid && interestsValid && favoriteColorValid && favoriteAnimalValid && dreamJobValid) {
     console.log('Submit');
@@ -138,6 +139,7 @@ function onSubmit(e) {
 
 
 function saveFriend() {
+  console.log('ny vän sparad')
   const friend = {
     friendName: friendForm.friendName.value,
     birthday: friendForm.birthday.value,
@@ -159,7 +161,7 @@ function saveFriend() {
 
 function renderFriendList() {
 console.log('rendering'); 
-api.getAll().then((friends) => { 
+  api.getAll().then((friends) => { 
   friendListElement.innerHTML = '';
   if (friends && friends.length > 0) {       
     friends.forEach((friend) => {
@@ -173,16 +175,29 @@ api.getAll().then((friends) => {
 function renderFriend({id, friendName, birthday, interests, favoriteColor, favoriteAnimal, dreamJob}) { 
   console.log('ny vän ska komma här')
   let html =`
-    <li class="select-none mt-2 py-2 border-b border-zinc-800">
-      <div class="flex items-center p-1" id=${id}>
-        <h3 class="mb-3 flex-1 text-xs font-bold text-zinc-700 uppercase">${friendName}, födelsedag: ${birthday} ${interests} ${favoriteColor}, ${favoriteAnimal}, ${dreamJob}</h3>
-        <button onclick="deleteTask(${id})" class="inline-block hover:bg-blue-300 hover:text-zinc-800 bg-blue-600 text-white text-xs font-semibold text-zinc-800 px-3 py-1 rounded-md ml-2 drop-shadow-md">Ta bort</button> 
+    <li class="select-none py-4 px-3 border-b border-pink-500">
+      <h3 class="mb-2 flex-1 text-xl font-serif font-bold text-zinc-800">${friendName}</h3>
+      <div class="grid grid-cols-2" id=${id}>    
+          <p class="mb-2 flex-1"><span class="font-semibold text-zink-800">Födelsedag: </span>${birthday}</p> 
+          <p class="mb-2 flex-1"><span class="font-semibold text-zink-800">Intressen: </span> ${interests}</p>
+          <p class="mb-2 flex-1"><span class="font-semibold text-zinc-800">Favoritfärg: </span>${favoriteColor}</p>
+          <p class="mb-2 flex-1"><span class="font-semibold text-zinc-800">Favoritdjur: </span>${favoriteAnimal}</p>
+          <p class="mb-2 flex-1"><span class="font-semibold text-zinc-800">Drömyrke: </span>${dreamJob}</p>
+        <div class="grid">
+          <button onclick="deleteFriend(${id})" class="justify-self-end inline-block bg-gradient-to-r from-green-200 to-blue-200 hover:from-pink-200 hover:to-yellow-200 text-xs font-semibold text-zinc-800 px-3 py-1 rounded-md ml-2 drop-shadow-md">Ta bort</button>
+        </div>
       </div>
+
     </li>`;
 
 
 return html;
 };
+
+
+
+
+
 
 
 function deleteFriend(id) {

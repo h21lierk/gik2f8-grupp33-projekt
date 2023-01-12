@@ -56,23 +56,25 @@ app.post('/friends', async (req, res) => {
 
 
 
-app.delete('./friends/:id', async (req, res) => {
-	try {
-		const id = req.params.id;
-		const listBuffer = await fs.readFile('./friends.json');
-		const currentFriends = JSON.parse(listBuffer);
-		if (currentFriends.lenght > 0) {
-			await fs.writeFile('./friends.json', JSON.stringify(currentFriends.filter((friend) => friend.id != id))
-		);
-		res.send({ message: `Din vän med id ${id} har tagits bort`});
-		}
-			else {
-				res.status(404).send({error: 'Ingen vän att ta bort.'});
-		}}
-		catch (error) {
-			res.status(500).send({ error: error.stack});
+  app.delete('/friends/:id', async (req, res) => {
+	console.log(req);
+	try { 
+	  const id = req.params.id; 
+	  const listBuffer = await fs.readFile('./friends.json');
+	  const currentFriends = JSON.parse(listBuffer);
+	  if (currentFriends.length > 0) { 
+		await fs.writeFile(
+		  './friends.json',
+		  JSON.stringify(currentFriends.filter((friend) => friend.id != id))
+		); 
+		res.send({ message: `Vän med id ${id} togs bort` });
+	  } else {
+		res.status(404).send({ error: 'Ingen vän att ta bort' });
+	  }
+	} catch (error) {
+	  res.status(500).send({ error: error.stack });
 	}
-});
+  });
 
 
 app.listen(PORT, () => console.log('Server running on http://localhost:5000'));
